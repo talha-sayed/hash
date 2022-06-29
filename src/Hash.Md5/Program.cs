@@ -6,6 +6,13 @@ public class Program
 {
     public static void Main(string[] args)
     {
+
+        for (var i = 0u; i < 100; i++)
+        {
+            PrintHex(i);
+        }
+
+
         var hasher = new Md5Hasher();
 
         var fileName = "C:\\talha\\inbox\\sample.jpg";
@@ -29,6 +36,16 @@ public class Program
         Console.WriteLine();
     }
 
+    public static void PrintHex(uint n)
+    {
+        foreach (byte b in BitConverter.GetBytes(n))
+        {
+            Console.Write($"{b:X02}");
+        }
+        Console.WriteLine();
+
+    }
+
     public static byte[] BuiltinHasher(string fileName)
     {
         using var md5 = MD5.Create();
@@ -42,7 +59,6 @@ public class Program
         {
             Console.Write($"{b:X2} ");
         }
-
     }
 
 

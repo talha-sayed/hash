@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash.Md5", "src\Hash.Md5\Hash.Md5.csproj", "{617F5AD2-1D12-48F9-AB50-7F90ED2471EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hash.Md5", "src\Hash.Md5\Hash.Md5.csproj", "{617F5AD2-1D12-48F9-AB50-7F90ED2471EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash.Test", "Hash.Test\Hash.Test.csproj", "{9514B1BB-B8B6-421B-98CB-584AF23413EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{617F5AD2-1D12-48F9-AB50-7F90ED2471EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617F5AD2-1D12-48F9-AB50-7F90ED2471EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617F5AD2-1D12-48F9-AB50-7F90ED2471EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9514B1BB-B8B6-421B-98CB-584AF23413EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9514B1BB-B8B6-421B-98CB-584AF23413EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9514B1BB-B8B6-421B-98CB-584AF23413EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9514B1BB-B8B6-421B-98CB-584AF23413EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
