@@ -23,7 +23,11 @@ namespace Hash.Test
 
 
             Debug.WriteLine($"{hash[0]:X02}{hash[1]:X02}{hash[2]:X02}{hash[3]:X02}");
-            Debug.WriteLine($"{hashBytes[0]:X02}{hashBytes[1]:X02}{hashBytes[2]:X02}{hashBytes[3]:X02}");
+
+            foreach (var item in hashBytes)
+            {
+                Debug.Write($"{item:X02}");
+            }
 
         }
     }

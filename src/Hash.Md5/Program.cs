@@ -12,6 +12,14 @@ public class Program
             PrintHex(i);
         }
 
+        uint a = 0x78_56_34_12;
+
+        foreach (byte b in BitConverter.GetBytes(a))
+        {
+            Console.Write($"{b:X02}");
+        }
+
+
 
         var hasher = new Md5Hasher();
 
@@ -42,8 +50,9 @@ public class Program
         {
             Console.Write($"{b:X02}");
         }
-        Console.WriteLine();
 
+        Console.Write($"  {n:X08}");
+        Console.WriteLine();
     }
 
     public static byte[] BuiltinHasher(string fileName)
@@ -61,7 +70,23 @@ public class Program
         }
     }
 
+    public static void ByteArrBinary(byte[] bytes)
+    {
+        int lineBr = 1;
 
+        for (int i = 0; i < bytes.Length; i++, lineBr++)
+        {
+            Console.Write($"{Convert.ToString(bytes[i], 2).PadLeft(8, '0')} ");
+
+            if (lineBr == 4)
+            {
+                Console.WriteLine();
+                lineBr = 0;
+            }
+        }
+
+
+    }
 
 
 }

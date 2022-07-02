@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Hash.Md5\Hash.Md5.csproj" />
+    <ProjectReference Include="..\Hash.Md5\Hash.Md5.csproj" />
   </ItemGroup>
 
 </Project>

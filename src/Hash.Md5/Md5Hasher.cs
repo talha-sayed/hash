@@ -39,7 +39,7 @@ public class Md5Hasher
     public byte[] GenerateHash(byte[] message)
     {
         // length in bits
-        var length = message.Length * 8;
+        var length = (uint)message.Length * 8;
 
         // Padding the message
         var paddingChars = 512 - (length % 512);
@@ -56,20 +56,19 @@ public class Md5Hasher
             paddingBytes--;
         }
 
+        var lengthArrayBits = messageList.Count*8;
+        var lengthArrayBytes = lengthArrayBits/8;
 
-        var lengthMsgU = (uint)messageList.Count*8;
-        var lengthMsg = messageList.Count;
-
-        messageList[lengthMsg - 4] = (byte)(lengthMsgU >> 24);
-        messageList[lengthMsg - 3] = (byte)(lengthMsgU >> 16);
-        messageList[lengthMsg - 2] = (byte)(lengthMsgU >> 8);
-        messageList[lengthMsg - 1] = (byte)lengthMsgU;
+        messageList[lengthArrayBytes - 4] = (byte)(length >> 0);
+        messageList[lengthArrayBytes - 3] = (byte)(length >> 8);
+        messageList[lengthArrayBytes - 2] = (byte)(length >> 16);
+        messageList[lengthArrayBytes - 1] = (byte)(length >> 24);
 
         // Initialize
-        uint A = 0x01234567;
-        uint B = 0x89abcdef;
-        uint C = 0xfedcba98;
-        uint D = 0x76543210;
+        uint A = 0x67452301;
+        uint B = 0xefcdab89;
+        uint C = 0x98badcfe;
+        uint D = 0x10325476;
 
         var numBlocks = (messageList.Count * 8) / 512;
         // main loop
@@ -84,9 +83,9 @@ public class Md5Hasher
 
             _x = new uint[16];
 
-            for (var j = 0; j < 16; j++)
+            for (var j = 0; j < 64; j=j+4)
             {
-                _x[j] = BitConverter.ToUInt32(messageList.Skip(i * 16 + j).ToArray());
+                _x[j/4] = BitConverter.ToUInt32(messageList.Skip(i * 16 + j).Take(4).ToArray());
             }
 
 #pragma warning disable IDE0055
